@@ -10,6 +10,7 @@
              :dev,,,,, {:dependencies [;; clojurescript repl deps
                                        [com.google.guava/guava "31.1-jre"]
                                        ;; competitors
-                                       [malabarba/lazy-map "1.3"]]}}
+                                       [malabarba/lazy-map "1.3"]]
+                        :source-paths ["doc"]}}
 
   :deploy-repositories [["clojars" {:url "https://clojars.org/repo" :sign-releases false}]])
