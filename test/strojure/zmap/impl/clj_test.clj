@@ -185,7 +185,7 @@
 
     (reduce-kv conj [] -m) #_= [:a :x :b :y]
 
-    (str -m) #_= "{:a :x, :b :y}"
+    (pr-str -m) #_= "{:a :x, :b :y}"
 
     )
 

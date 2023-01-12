@@ -206,8 +206,8 @@
     (-pr-writer (or realized! (set! realized! (into {} (map map-entry) m))) writer opts))
   Object
   (toString
-    [this]
-    (pr-str* this))
+    [_]
+    (pr-str* m))
   impl/Wrap
   (wrap
     [this] this)

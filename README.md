@@ -20,6 +20,7 @@ Pronounced as `[Zee Map]`.
 * Support `IFn` interface of persistent map.
 * Support transients.
 * Transparent IPersistentMap behaviour with minimal overhead.
+* The `toString` does not realize delayed values, shows them like delays.
 
 ## API
 

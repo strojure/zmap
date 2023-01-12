@@ -202,8 +202,8 @@
     (.meta ^IMeta m))
   Object
   (toString
-    [this]
-    (RT/printString this))
+    [_]
+    (RT/printString m))
   impl/Wrap
   (wrap
     [this] this)

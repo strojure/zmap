@@ -6,9 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Version `1.1.3-SNAPSHOT`
 
-
+- Change `toString` to not realize delayed values.
 
 ## Version `1.0.2` on 2022-12-19
 
-* Rework previous implementation https://github.com/strojure/zizzmap 
+- Rework previous implementation https://github.com/strojure/zizzmap 
   with new API.
