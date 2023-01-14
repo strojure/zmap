@@ -42,6 +42,36 @@ The function `zmap/wrap` is used to wrap Clojure map having values created with
 ;=> 1
 ```
 
+### `update`
+
+The function `zmap/update` is used for delayed map update.
+
+```clojure
+(ns api.core-update
+  "Example of `zmap/update`."
+  (:require [strojure.zmap.core :as zmap]))
+
+(def ^:private -map1
+  (zmap/update {:a 1} :a (fn [x]
+                           (println "Update")
+                           (inc x))))
+
+(get -map1 :a)
+;Update
+;=> 2
+
+(def ^:private -map2
+  (-> (zmap/wrap {:a (zmap/delay (println "Init") 1)})
+      (zmap/update :a (fn [x]
+                        (println "Update")
+                        (inc x)))))
+
+(get -map2 :a)
+;Init
+;Update
+;=> 2
+```
+
 ### `with-map`
 
 The macro `zmap/with-map` is used to make multiple transformations of underlying

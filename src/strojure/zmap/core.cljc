@@ -1,5 +1,5 @@
 (ns strojure.zmap.core
-  (:refer-clojure :exclude [delay])
+  (:refer-clojure :exclude [delay update])
   (:require [strojure.zmap.impl.core :as impl :include-macros true]
             #?(:clj  [strojure.zmap.impl.clj]
                :cljs [strojure.zmap.impl.cljs])))
@@ -21,6 +21,31 @@
   map is constructed manually."
   [& body]
   `(impl/boxed-delay ~@body))
+
+;;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+(defn update
+  "Same as `clojure.core/update` but with delayed new value."
+  {:added "1.2"}
+  ([m k f]
+   (wrap (assoc m k (delay (f (get m k))))))
+  ([m k f x]
+   (wrap (assoc m k (delay (f (get m k) x)))))
+  ([m k f x y]
+   (wrap (assoc m k (delay (f (get m k) x y)))))
+  ([m k f x y z]
+   (wrap (assoc m k (delay (f (get m k) x y z)))))
+  ([m k f x y z & more]
+   (wrap (assoc m k (delay (apply f (get m k) x y z more))))))
+
+(comment
+  (def -m {:a {}})
+  (def -m {:a 1})
+  (def -m (wrap {:a (delay 1)}))
+  (update -m :a assoc :x 0)
+  (update -m :a inc)
+  (update nil :a (fnil inc 0))
+  )
 
 ;;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 
