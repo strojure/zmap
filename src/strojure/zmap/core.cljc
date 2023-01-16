@@ -2,7 +2,8 @@
   (:refer-clojure :exclude [delay update])
   (:require [strojure.zmap.impl.core :as impl :include-macros true]
             #?(:clj  [strojure.zmap.impl.clj]
-               :cljs [strojure.zmap.impl.cljs])))
+               :cljs [strojure.zmap.impl.cljs]))
+  #?(:cljs (:require-macros [strojure.zmap.core :refer [delay]])))
 
 #?(:clj  (set! *warn-on-reflection* true)
    :cljs (set! *warn-on-infer* true))

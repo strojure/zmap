@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Release date `UNRELEASED`
 
+- Fix `zmap/update` in CLJS.
+
 ## `1.2.8`
 
 Release date `2023-01-14`
