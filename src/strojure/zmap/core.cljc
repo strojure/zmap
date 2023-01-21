@@ -29,15 +29,15 @@
   "Same as `clojure.core/update` but with delayed new value."
   {:added "1.2"}
   ([m k f]
-   (wrap (assoc m k (delay (f (get m k))))))
+   (impl/update0 m k f))
   ([m k f x]
-   (wrap (assoc m k (delay (f (get m k) x)))))
+   (impl/update1 m k f x))
   ([m k f x y]
-   (wrap (assoc m k (delay (f (get m k) x y)))))
+   (impl/update2 m k f x y))
   ([m k f x y z]
-   (wrap (assoc m k (delay (f (get m k) x y z)))))
+   (impl/update3 m k f x y z))
   ([m k f x y z & more]
-   (wrap (assoc m k (delay (apply f (get m k) x y z more))))))
+   (impl/update* m k f x y z more)))
 
 (comment
   (def -m {:a {}})

@@ -209,11 +209,43 @@
     [this] this)
   impl/Unwrap
   (unwrap
-    [_] m))
+    [_] m)
+  impl/Update
+  (update0
+    [_ k f]
+    (PersistentMapProxy. nil (.assoc m k (impl/boxed-apply f (.valAt m k)))))
+  (update1
+    [_ k f x]
+    (PersistentMapProxy. nil (.assoc m k (impl/boxed-apply f (.valAt m k) x))))
+  (update2
+    [_ k f x y]
+    (PersistentMapProxy. nil (.assoc m k (impl/boxed-apply f (.valAt m k) x y))))
+  (update3
+    [_ k f x y z]
+    (PersistentMapProxy. nil (.assoc m k (impl/boxed-apply f (.valAt m k) x y z))))
+  (update*
+    [_ k f x y z more]
+    (PersistentMapProxy. nil (.assoc m k (impl/boxed-apply f (.valAt m k) x y z more)))))
 
 (extend-type IPersistentMap
   impl/Wrap (wrap [m] (PersistentMapProxy. nil m))
-  impl/Unwrap (unwrap [m] m))
+  impl/Unwrap (unwrap [m] m)
+  impl/Update
+  (update0
+    [m k f]
+    (PersistentMapProxy. nil (.assoc m k (impl/boxed-apply f (.valAt m k)))))
+  (update1
+    [m k f x]
+    (PersistentMapProxy. nil (.assoc m k (impl/boxed-apply f (.valAt m k) x))))
+  (update2
+    [m k f x y]
+    (PersistentMapProxy. nil (.assoc m k (impl/boxed-apply f (.valAt m k) x y))))
+  (update3
+    [m k f x y z]
+    (PersistentMapProxy. nil (.assoc m k (impl/boxed-apply f (.valAt m k) x y z))))
+  (update*
+    [m k f x y z more]
+    (PersistentMapProxy. nil (.assoc m k (impl/boxed-apply f (.valAt m k) x y z more)))))
 
 (extend-protocol impl/Wrap nil
   (wrap [_] (PersistentMapProxy. nil {})))
