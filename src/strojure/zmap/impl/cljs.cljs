@@ -237,19 +237,19 @@
   impl/Update
   (update0
     [m k f]
-    (PersistentMapProxy. nil (-assoc m k (impl/boxed-apply f (-lookup m k)))))
+    (-assoc m k (impl/boxed-apply f (-lookup m k))))
   (update1
     [m k f x]
-    (PersistentMapProxy. nil (-assoc m k (impl/boxed-apply f (-lookup m k) x))))
+    (-assoc m k (impl/boxed-apply f (-lookup m k) x)))
   (update2
     [m k f x y]
-    (PersistentMapProxy. nil (-assoc m k (impl/boxed-apply f (-lookup m k) x y))))
+    (-assoc m k (impl/boxed-apply f (-lookup m k) x y)))
   (update3
     [m k f x y z]
-    (PersistentMapProxy. nil (-assoc m k (impl/boxed-apply f (-lookup m k) x y z))))
+    (-assoc m k (impl/boxed-apply f (-lookup m k) x y z)))
   (update*
     [m k f x y z more]
-    (PersistentMapProxy. nil (-assoc m k (impl/boxed-apply f (-lookup m k) x y z more)))))
+    (-assoc m k (impl/boxed-apply f (-lookup m k) x y z more))))
 
 (extend-type PersistentHashMap
   impl/Wrap (wrap [m] (PersistentMapProxy. nil m))
@@ -257,19 +257,19 @@
   impl/Update
   (update0
     [m k f]
-    (PersistentMapProxy. nil (-assoc m k (impl/boxed-apply f (-lookup m k)))))
+    (-assoc m k (impl/boxed-apply f (-lookup m k))))
   (update1
     [m k f x]
-    (PersistentMapProxy. nil (-assoc m k (impl/boxed-apply f (-lookup m k) x))))
+    (-assoc m k (impl/boxed-apply f (-lookup m k) x)))
   (update2
     [m k f x y]
-    (PersistentMapProxy. nil (-assoc m k (impl/boxed-apply f (-lookup m k) x y))))
+    (-assoc m k (impl/boxed-apply f (-lookup m k) x y)))
   (update3
     [m k f x y z]
-    (PersistentMapProxy. nil (-assoc m k (impl/boxed-apply f (-lookup m k) x y z))))
+    (-assoc m k (impl/boxed-apply f (-lookup m k) x y z)))
   (update*
     [m k f x y z more]
-    (PersistentMapProxy. nil (-assoc m k (impl/boxed-apply f (-lookup m k) x y z more)))))
+    (-assoc m k (impl/boxed-apply f (-lookup m k) x y z more))))
 
 (extend-protocol impl/Wrap nil
   (wrap [_] (PersistentMapProxy. nil {})))

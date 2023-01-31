@@ -21,9 +21,11 @@
   (test/are [expr result] (= result expr)
 
     (let [a! (atom [])
-          zmap (zmap/update {:a 1} :a (fn [x]
-                                        (swap! a! conj :update)
-                                        (inc x)))]
+          zmap (-> {:a 1}
+                   (zmap/update :a (fn [x]
+                                     (swap! a! conj :update)
+                                     (inc x)))
+                   (zmap/wrap))]
       [zmap @a! (:a zmap) @a!])
 
     #_= [{:a 2} [] 2 [:update]]

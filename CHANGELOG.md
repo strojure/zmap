@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Release date `UNRELEASED`
 
+- BREAKING: `zmap/update` preserves type of the map instance.
+
 ## `1.2.15`
 
 Release date `2013-01-21`

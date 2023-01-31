@@ -26,7 +26,8 @@
 ;;,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 
 (defn update
-  "Same as `clojure.core/update` but with delayed new value."
+  "Like `clojure.core/update` but with delayed new value. Returns instance of
+  the same type as input `m`, so standard maps should be wrapped afterwards."
   {:added "1.2"}
   ([m k f]
    (impl/update0 m k f))

@@ -3,9 +3,11 @@
   (:require [strojure.zmap.core :as zmap]))
 
 (def ^:private -map1
-  (zmap/update {:a 1} :a (fn [x]
-                           (println "Update")
-                           (inc x))))
+  (-> {:a 1}
+      (zmap/update :a (fn [x]
+                        (println "Update")
+                        (inc x)))
+      (zmap/wrap)))
 
 (get -map1 :a)
 ;Update
