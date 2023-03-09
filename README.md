@@ -2,8 +2,11 @@
 
 Persistent map with lazily evaluated values for Clojure(Script).
 
-[![cljdoc badge](https://cljdoc.org/badge/com.github.strojure/zmap)](https://cljdoc.org/d/com.github.strojure/zmap)
 [![Clojars Project](https://img.shields.io/clojars/v/com.github.strojure/zmap.svg)](https://clojars.org/com.github.strojure/zmap)
+
+[![cljdoc badge](https://cljdoc.org/badge/com.github.strojure/zmap)](https://cljdoc.org/d/com.github.strojure/zmap)
+[![cljs compatible](https://img.shields.io/badge/cljs-compatible-green)](https://clojurescript.org/)
+[![tests](https://github.com/strojure/zmap/actions/workflows/tests.yml/badge.svg)](https://github.com/strojure/zmap/actions/workflows/tests.yml)
 
 Pronounced as `[Zee Map]`.
 
