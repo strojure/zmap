@@ -1,4 +1,4 @@
-(ns benchmarks.core
+(ns benchmarks.compare
   (:require [lazy-map.core :as lazy]
             [strojure.zmap.core :as zmap]))
 

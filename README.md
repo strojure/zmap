@@ -106,4 +106,4 @@ Clojure map with decreased overhead caused by zmap proxying.
 
 ## Performance
 
-See benchmarks [here](doc/benchmarks/core.clj).
+See benchmarks [here](doc/benchmarks/compare.clj).
