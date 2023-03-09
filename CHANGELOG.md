@@ -4,9 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## `1.3.19-SNAPSHOT`
+## `1.3.27-SNAPSHOT`
 
 Release date `UNRELEASED`
+
+
+
+## `1.3.26`
+
+Release date `2023-03-09`
 
 - (chore): Change license to Unlicense.
 - (build): Add `cljs-test` lein alias.
