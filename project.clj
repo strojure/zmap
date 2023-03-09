@@ -1,7 +1,7 @@
 (defproject com.github.strojure/zmap "1.3.19-SNAPSHOT"
   :description "Persistent maps with support for lazy values."
   :url "https://github.com/strojure/zmap"
-  :license {:name "The MIT License" :url "http://opensource.org/licenses/MIT"}
+  :license {:name "The Unlicense" :url "https://unlicense.org"}
 
   :dependencies []
 
